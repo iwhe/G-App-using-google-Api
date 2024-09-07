@@ -5,14 +5,13 @@ import { getUser } from "../services/user";
 const Mail = () => {
   const [Error, setError] = useState("");
   const [user, setUser] = useState(null);
+  const [response, seResponse] = useState(null);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await getUser();
-
           setUser(response?.data);
-
       } catch (err) {
         console.error(err);
         setError(err.message);
