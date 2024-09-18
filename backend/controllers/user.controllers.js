@@ -144,13 +144,11 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 const getCurrentUser = asyncHandler(async (req, res) => {
-  console.log("Current user", req.user[0]);
+  console.log("Current user fetched");
 
   return res
     .status(200)
-    .json(
-      new ApiResponse(200, req.user[0], "Current User fetched successfully")
-    );
+    .json(new ApiResponse(200, req.user, "Current User fetched successfully"));
 });
 
 export {

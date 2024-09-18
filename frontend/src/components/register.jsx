@@ -40,6 +40,7 @@ const Register = () => {
     }
   }
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -53,6 +54,7 @@ const Register = () => {
        if(response){
         console.log(response);
          alert("User registered successfully!")
+         navigate("/")
         }
       }
     } catch (error) {
@@ -63,7 +65,7 @@ const Register = () => {
   return (
     <div className="bg-slate-100 text-zinc w-screen h-screen ">
       <div className="relative w-full pt-4 flex justify-center items-center ">
-        <div className="w-3/4 h-auto bg-white flex flex-row rounded-xl justify-between items-center">
+        <div className="w-3/4 h-auto bg-white  h-full flex flex-col rounded-xl justify-between items-center">
           <div>
             <h1 className="text-6xl font-roboto m-4 text-blue-500">
               {" "}
@@ -78,7 +80,7 @@ const Register = () => {
             </p>
           </div>
           <div className="flex flex-col gap-4 w-1/2 m-4 ">
-            <form
+            {/* <form
               onSubmit={handleSubmit}
               className="flex flex-col gap-4 bg-gray-100 p-8 rounded-2xl"
             >
@@ -138,8 +140,8 @@ const Register = () => {
               >
                 Submit
               </button>
-            </form>
-            <div className="border-b border-gray-400 w-full "></div>
+            </form> */}
+            {/* <div className="border-b border-gray-400 w-full "></div> */}
             <div 
             onClick={handleGoogleSignIn}
             className="flex flex-row gap-4 p-4 items-center text-lg bg-primary  justify-center rounded-full my-4 cursor-pointer">

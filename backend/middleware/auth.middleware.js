@@ -20,7 +20,7 @@ const authMiddleware = asyncHandler(async (req, _, next) => {
     if (!user || user.length == 0) {
       throw new ApiError(401, "Unauthorized: Invalid token");
     }
-    req.user = user[0];
+    req.user = user[0][0];
     // console.log(user[0]);
 
     console.log("Auth Middleware Successfull");

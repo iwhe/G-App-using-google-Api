@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import { LuPenSquare } from "react-icons/lu";
 import { BiSolidMessageDetail } from "react-icons/bi";
 import { AiOutlineSend } from "react-icons/ai";
-import EmailContainer from "./emailContainer";
-import Inbox from "./inboxMail";
-import SentMail from "./sentMail";
+import EmailContainer from "./mail/emailContainer";
+import Inbox from "./mail/inboxMail";
+import SentMail from "./mail/sentMail";
 
 const Sidebar = () => {
   const [mailContainer, setMailContainer] = useState(false);
@@ -55,7 +55,7 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-      <div className="relative p-4 h-full w-full">
+      <div className="relative p-4 pt-20 h-full w-full">
         {
           viewInbox && 
           <Inbox/> || viewSent && 
