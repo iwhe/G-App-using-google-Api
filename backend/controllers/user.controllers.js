@@ -1,4 +1,3 @@
-import { query } from "express";
 import connectDB from "../db/connect.js";
 import ApiError from "../utils/ApiError.js";
 import ApiResponse from "../utils/ApiResponse.js";

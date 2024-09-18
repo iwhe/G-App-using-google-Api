@@ -1,11 +1,11 @@
 // Function to decode base64Url encoded strings
-export const decodeBase64Url = (base64Url) => {
-  return Buffer.from(base64Url, "base64url").toString("utf-8");
+export const decodeBase64Url = async (base64Url) => {
+  return await Buffer.from(base64Url, "base64url").toString("utf-8");
 };
 
 // Function to extract and parse parts from multipart/alternative
 export const parseAlternativePayload = async (payload) => {
-  console.log("parsing multipart/alternative");
+  // console.log("parsing multipart/alternative");
   let emailBody = {
     subject: null,
     from: null,
@@ -60,7 +60,7 @@ export const parseAlternativePayload = async (payload) => {
 
 // Function to extract and parse parts from multipart/mixed
 export const parseMixedPayload = async (payload) => {
-  console.log("parsing multipart/mixed");
+  // console.log("parsing multipart/mixed");
   let emailBody = {
     subject: null,
     from: null,

@@ -8,7 +8,6 @@ import {
   parseMixedPayload,
   decodeBase64Url,
 } from "../utils/mimeHandler.js";
-import { parse } from "dotenv";
 let options = {
   httpOnly: true,
   secure: true,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IoIosClose, IoMdAttach, IoIosArrowUp } from "react-icons/io";
+import { IoMdAttach, IoIosArrowUp } from "react-icons/io";
 import { MdDeleteForever } from "react-icons/md";
 import { VscChromeMinimize } from "react-icons/vsc";
 import { http } from "../../services/http";
