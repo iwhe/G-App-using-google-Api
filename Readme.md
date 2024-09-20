@@ -1,11 +1,11 @@
 # GApp using Google API
 
 ## This project consists of various Google Applications such as:
-- Gmail   (in progress)
-- Maps (completed)
-- OAuth 2.0 Authentication (completed)
-- Gemini  (in process)
-- Text to Image Generation  (in process)
+- Gmail  
+- Maps
+- OAuth 2.0 Authentication 
+- Gemini  
+- Text to Image Generation 
 
 ## This project is built using
 - NodeJS for backend,
