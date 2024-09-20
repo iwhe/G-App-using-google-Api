@@ -142,6 +142,24 @@ const loginUser = asyncHandler(async (req, res) => {
     );
 });
 
+const logOutUser = asyncHandler(async (req, res) => {
+  const pool = await connectDB();
+  const id = req.user.id;
+
+  const [user] = await pool?.query(
+    `UPDATE user SET refreshToken = NULL WHERE id = ?`,
+    [id]
+  );
+  console.log(user);
+
+  return res
+    .status(200)
+    .clearCookie("googleAuthToken", options)
+    .clearCookie("accessToken", options)
+    .clearCookie("refreshToken", options)
+    .json(new ApiResponse(200, "Logged Out Successfully"));
+});
+
 const getCurrentUser = asyncHandler(async (req, res) => {
   console.log("Current user fetched");
 
@@ -153,6 +171,7 @@ const getCurrentUser = asyncHandler(async (req, res) => {
 export {
   registerUser,
   loginUser,
+  logOutUser,
   getCurrentUser,
   generateAccessAndRefreshToken,
 };

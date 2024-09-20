@@ -23,7 +23,7 @@ passport.use(
         "https://www.googleapis.com/auth/gmail.modify",
       ],
       accessType: "offline",
-      // prompt: "consent",
+      prompt: "consent",
     },
     async (accessToken, refreshToken, profile, cb) => {
       try {

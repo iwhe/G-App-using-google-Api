@@ -18,7 +18,7 @@ router.get(
   passport.authenticate("google", {
     scope: ["profile", "email", "https://www.googleapis.com/auth/gmail.modify"],
     accessType: "offline",
-    // prompt: "consent",
+    prompt: "consent",
   })
 );
 

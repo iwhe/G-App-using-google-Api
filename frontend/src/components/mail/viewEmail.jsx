@@ -9,15 +9,15 @@ const ViewEmail = () => {
   const [email, setEmail] = useState(null);
   const [loading, setLoading] = useState(false);
   const id = useParams().id;
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     try {
       const fetchEmail = async (id) => {
-        // console.log("fetch email", id);
+        console.log("fetch email", id);
         setLoading(true);
         const response = await getEmailById(id);
-        // console.log("Response", response);
+        console.log("Response", response);
         if (response) {
           setEmail(response.data);
         }
@@ -27,7 +27,7 @@ const ViewEmail = () => {
       console.log("Error while fetching email", error);
     } finally {
       setLoading(false);
-      // console.log("Email", email);
+      console.log("Email", email);
     }
   }, []);
 
@@ -52,7 +52,7 @@ const ViewEmail = () => {
   }
 
   return (
-    <div className="w-screen h-screen bg-blue-100 p-4 ">
+    <div className="w-screen h-screen bg-blue-100 p-4 overflow-x-hidden">
       <div className="rounded-xl bg-[#FEFCFF] overflow-hidden">
         <div className="topbar w-full h-auto py-4 bg-gray-200 text-left px-4 text-xl">
           <IoMdArrowBack

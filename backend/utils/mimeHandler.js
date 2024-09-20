@@ -38,10 +38,10 @@ export const parseAlternativePayload = async (payload) => {
 
     for (const part of payload.parts) {
       if (part.mimeType === "text/plain") {
-        const decodedText = decodeBase64Url(part.body.data);
+        const decodedText = await decodeBase64Url(part.body.data);
         emailBody.body.text = decodedText;
       } else if (part.mimeType === "text/html") {
-        const decodedHTML = decodeBase64Url(part.body.data);
+        const decodedHTML = await decodeBase64Url(part.body.data);
         emailBody.body.html = decodedHTML;
       } else {
         (emailBody.body = {

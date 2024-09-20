@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PiSignOut } from "react-icons/pi";
 import { IoCloseOutline } from "react-icons/io5";
+import defaultImage from "../../assets/default-profile.jpg"
+import { signOut } from '../../services/user';
 
 const ProfilePopUp = (props) => {
     const user = props.user;
+
+
+    const handleSignOut = async () => {
+     const response =  await signOut();
+     if(response.status === 200) {
+      console.log("logout response : ", response);
+      
+      props.onClose();
+      user = null;
+      alert("Logged out successfully")
+      // window.location.reload();
+     }
+
+    }
+
+
     return (
     <div className='bg-[#282a2c] py-8 px-4 text-[#c4c7c5] min-w-[436px] max-w-[240px] p-[8px 12px 16px] shadow-[0 4px 8px 3px rgba(0,0,0,.15),0 1px 3px rgba(0,0,0,.3)] rounded-[28px] flex flex-col items-center'>
         
@@ -25,16 +43,27 @@ const ProfilePopUp = (props) => {
             background: "conic-gradient(yellow, cyan, limegreen, yellow)",
           }}
         ></div>
-        <div className="absolute inset-0 p-[2px] rounded-full ">
+        {user.image ? ( <div className="absolute inset-0 p-[2px] rounded-full ">
           <img
             src={user.image}
             alt="profile"
             className="w-full h-full object-cover rounded-full"
           />
+        </div>): (
+          <div className="absolute inset-0 p-[2px] rounded-full ">
+          <img
+            src={defaultImage}
+
+            alt="profile"
+            className="w-full h-full object-cover rounded-full"
+          />
         </div>
+      )}
         </div>
         <div className='capitalise font-[400] font-["Google Sans","Roboto"] text-[1.375rem] my-5 text-center '>{user.name}</div>
-        <button className='font-[Helvitika] w-full bg-black text-[#e3e3e3] rounded-full p-[17px] flex flex-row justify-center items-center text-md gap-4' > <PiSignOut />
+        <button 
+        onClick={()=>handleSignOut()}
+        className='font-[Helvitika] w-full bg-black text-[#e3e3e3] rounded-full p-[17px] flex flex-row justify-center items-center text-md gap-4' > <PiSignOut />
         Sign Out</button>
     </div>
     

@@ -63,7 +63,7 @@ const HomeComponents = () => {
         working with google api{" "}
       </h2>
 
-      {user && user.image ? (
+      {user &&  user.image ? (
         <div>
           <div
             className="profile cursor-pointer w-14 h-14 rounded-full absolute right-2 top-2  z-10"
@@ -91,7 +91,9 @@ const HomeComponents = () => {
       )}
 
       <div className="grid gap-4 p-4 grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] justify-items-center  items-center  mt-28 md:mx-8 px-8">
-        <div className="bg-white w-36 md:w-48 p-4 rounded-xl hover:bg-gray-200">
+        <div 
+        onClick={() => navigate("/text-to-image")}
+        className="bg-white w-36 md:w-48 p-4 rounded-xl hover:bg-gray-200">
           <img className="rounded-md" src={textImage}></img>
           <p className="font-bold font-serif text-sm md:text-lg mt-2">
             AI text to image

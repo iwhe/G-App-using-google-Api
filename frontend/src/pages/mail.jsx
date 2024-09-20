@@ -38,7 +38,7 @@ const Mail = () => {
               setError("An unexpected error occurred.");
           }
         }
-        setError(err.message);
+        setError(error.message);
       } finally {
         setLoading(false);
       }

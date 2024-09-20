@@ -119,6 +119,7 @@ export const viewMail = async (req, res) => {
   } else if (messageData.data.payload.mimeType === "text/plain") {
     Emaildata = await parseText(messageData.data.payload);
   }
+  console.log(Emaildata.body.html);
 
   res.status(200).json(Emaildata);
 };
